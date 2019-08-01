@@ -11,7 +11,7 @@ func TestMakeLinkList(t *testing.T) {
 		{1, 2, 3},
 	}
 	for _, sl := range testcases {
-		l := MakeLinkList(sl)
+		l := MakeLinkedList(sl)
 		t.Logf("l = [%v]", l)
 	}
 
@@ -60,8 +60,8 @@ func TestListNodeEquals(t *testing.T) {
 		},
 	}
 	for i, tcase := range testcases {
-		l1 := MakeLinkList(tcase.l1)
-		l2 := MakeLinkList(tcase.l2)
+		l1 := MakeLinkedList(tcase.l1)
+		l2 := MakeLinkedList(tcase.l2)
 		equals := ListNodeEquals(l1, l2)
 		if equals == tcase.equals {
 			t.Logf("%d/%d PASSED ", i+1, len(testcases))

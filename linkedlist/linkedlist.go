@@ -9,7 +9,7 @@ type ListNode struct {
 }
 
 // MakeLinkList make a linked list form int slice
-func MakeLinkList(data []int) (head *ListNode) {
+func MakeLinkedList(data []int) (head *ListNode) {
 	head = new(ListNode)
 	p := head
 	for _, item := range data {
