@@ -4,6 +4,38 @@ import (
 	"testing"
 )
 
+func makeLinedListSequence(start, end, step int) (l *ListNode) {
+	if step == 0 {
+		return &ListNode{
+			start,
+			nil,
+		}
+	}
+	l = &ListNode{start, nil}
+	p := l
+	start += step
+	for ; start < end; start += step {
+		p.Next = &ListNode{
+			start,
+			nil,
+		}
+		p = p.Next
+	}
+	return l
+}
+
+func TestReverse(t *testing.T) {
+	l := makeLinedListSequence(0, 5, 2)
+	t.Logf("Origin: %v", l)
+	l = Reverse(l)
+	t.Logf("Reversed: %v", l)
+	l = makeLinedListSequence(1, 9, 2)
+	t.Logf("Origin: %v", l)
+	l = Reverse(l)
+	t.Logf("Reversed: %v", l)
+
+}
+
 func TestHasCycle(t *testing.T) {
 	listOfNode := [9]*ListNode{}
 	head := &ListNode{0, nil}
